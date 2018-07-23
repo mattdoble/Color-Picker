@@ -1,0 +1,195 @@
+/* Mixins */
+
+/* Cross */
+@mixin closeBtn {
+  width: 20px;
+  height: 20px;
+  opacity: 0.3;
+  &:hover {
+    opacity: 1;
+  }
+  &:before,
+  &:after {
+    position: absolute;
+    left: 10px;
+    content: " ";
+    height: 21px;
+    width: 2px;
+    background-color: #333;
+  }
+  &:before {
+    transform: rotate(45deg);
+  }
+  &:after {
+    transform: rotate(-45deg);
+  }
+}
+
+.labelEditor {
+  position: absolute;
+  top: -6px;
+  left: 34px; /* 40px minus 6px padding */
+  z-index: 9999;
+  display: flex;
+}
+
+.labelSwatch {
+  background: white;
+  box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.5);
+  clip: rect(-11px 40px 4em -20px);
+  padding: 8px 0px 8px 8px;
+  position: absolute;
+  left: -40px;
+  z-index: 999;
+}
+
+.label {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  flex: 1;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: bold;
+  height: 32px;
+  width: 32px;
+  overflow: hidden;
+  position: relative;
+  transition: 0.2s background-color ease;
+}
+
+.colourSelect {
+  padding: 8px;
+  background: white;
+  position: relative;
+  max-width: 170px;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.5);
+  .labelInput {
+    border-bottom: 1px solid #eee;
+    form {
+      margin: 0;
+    }
+    input {
+      border: 0;
+      outline: none;
+      padding: 6px;
+      font-size: 16px;
+      max-width: 140px;
+    }
+    ::-webkit-input-placeholder {
+      font-style: italic;
+    }
+    :-moz-placeholder {
+      font-style: italic;
+    }
+    ::-moz-placeholder {
+      font-style: italic;
+    }
+    :-ms-input-placeholder {
+      font-style: italic;
+    }
+  }
+  .remove {
+    @include closeBtn;
+    display: block;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+  }
+}
+
+.swatchNoColor {
+  display: flex;
+  align-items: center;
+  a {
+    width: 23px; /* 1px less to account for border */
+    height: 23px;
+    display: inline-block;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    position: relative;
+    cursor: pointer;
+    transition: border-color 0.4s ease;
+    &:hover {
+      border-color: #aaa;
+    }
+    &:before {
+      position: absolute;
+      content: "";
+      left: 0;
+      top: 45%;
+      right: 0;
+      border-top: 1px solid;
+      border-color: inherit;
+      transform: skewY(-45deg);
+    }
+  }
+}
+
+.labelSmall {
+  font-size: 14px;
+  margin-left: 5px;
+  display: inline-block;
+}
+
+.controls {
+  flex: 1;
+  margin: 0;
+}
+
+.saturation {
+  width: 100%;
+  padding-bottom: 75%;
+  margin-bottom: 8px;
+  position: relative;
+  overflow: hidden;
+  margin-top: 5px;
+  .Saturation {
+    border-radius: 3px;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.15),
+      inset 0 0 4px rgba(0, 0, 0, 0.25);
+  }
+}
+
+.hue {
+  position: relative;
+  height: 10px;
+  overflow: hidden;
+  .Hue {
+    border-radius: 3px;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.15),
+      inset 0 0 4px rgba(0, 0, 0, 0.25);
+  }
+}
+
+.expand {
+  font-size: 14px;
+  cursor: pointer;
+  margin: 5px 0 0 0;
+  float: right;
+}
+
+@mixin caret {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  vertical-align: middle;
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+  margin-left: 4px;
+}
+
+/* Caret */
+.caretUp {
+  @include caret;
+  border-bottom: 4px dashed;
+}
+
+.caretDown {
+  @include caret;
+  border-top: 4px dashed;
+}

@@ -1,0 +1,21 @@
+{
+  "name": "colour-picker-component",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "start": "parcel index.html --open",
+    "build": "parcel build index.html"
+  },
+  "dependencies": {
+    "lodash": "4.17.10",
+    "react": "16.2.0",
+    "react-color": "latest",
+    "react-dom": "16.2.0",
+    "react-onclickoutside": "6.7.1"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.6.1"
+  },
+  "keywords": []
+}

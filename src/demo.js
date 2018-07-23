@@ -155,10 +155,11 @@ class App extends React.Component {
       <div>
         <h1>Colour Picker Component Demo</h1>
         <p>
-          Specification:{" "}
-          <a href="https://zpl.io/V0EWPlK">https://zpl.io/V0EWPlK</a>
+          Design specification:{" "}
+          <a href="https://zpl.io/V0EWPlK">https://zpl.io/V0EWPlK</a><br /><br />
+          Jira ticket: <a href="https://zpl.io/V0EWPlK">https://zpl.io/V0EWPlK</a><br />
         </p>
-        <br />
+        <hr />
         <MarkerWrapper
           presetColors={presetColors}
           colour={demoColors.A}
